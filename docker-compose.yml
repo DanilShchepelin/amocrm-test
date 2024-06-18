@@ -14,5 +14,4 @@ services:
       - ./test:/app/test
       - ./package.json:/app/package.json
       - ./.env:/app/.env
-      - ./.env.test:/app/.env.test
     command: npm run start:dev
