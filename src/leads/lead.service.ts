@@ -80,16 +80,19 @@ export class LeadService {
         name: lead.name,
         price: lead.price,
         createdAt: this.formatDate(lead.created_at),
-        responsibleUserId: lead.responsible_user_id,
-        responsibleUserName: responsibleUsers.find(
-          (user: any) => user.id === lead.responsible_user_id,
-        ).name,
-        statusId: lead.status_id,
-        statusName: statuses.find((status: any) => status.id === lead.status_id)
-          .name,
-        statusColor: statuses.find(
-          (status: any) => status.id === lead.status_id,
-        ).color,
+        responsibleUser: {
+          id: lead.responsible_user_id,
+          name: responsibleUsers.find(
+            (user: any) => user.id === lead.responsible_user_id,
+          ).name,
+        },
+        status: {
+          id: lead.status_id,
+          name: statuses.find((status: any) => status.id === lead.status_id)
+            .name,
+          color: statuses.find((status: any) => status.id === lead.status_id)
+            .color,
+        },
         contacts: this.getContactsForLead(leadContactsData),
       };
     });
