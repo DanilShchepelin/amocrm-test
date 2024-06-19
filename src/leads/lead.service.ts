@@ -76,7 +76,7 @@ export class LeadService {
       );
 
       return {
-        id: lead.id,
+        key: lead.id,
         name: lead.name,
         price: lead.price,
         createdAt: this.formatDate(lead.created_at),
